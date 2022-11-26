@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML & JS EVENT</title>
+</head>
+
+<body>
+    <ul>
+        <li>List Item</li>
+        <li>Lorem, ipsum.</li>
+        <li onclick="alert('Are you clicked this li?')">Exercitationem, expedita?</li>
+        <li onclick="this.innerText='someone cliked'">Voluptate, porro.</li>
+        <li onclick="itemClickHandler(event)">Corrupti, non.</li>
+        <li id="last-item">Incidunt, labore.</li>
+    </ul>
+
+    <script>
+        function itemClickHandler(event){
+            console.log(event.target.innerText);
+        }
+        document.getElementById("last-item").addEventListener("click", itemClickHandler);
+    </script>
+</body>
+
+</html>

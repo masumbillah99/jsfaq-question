@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Management</title>
+    <style>
+        h1 {
+            padding-bottom: 15px;
+        }
+
+        button {
+            color: white;
+            background-color: #48A870;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 onclick="titleHandle()">Exploring Events</h1>
+    <button onclick="alert(49)">Click Button</button>
+
+    <button onclick="handleClick()">Today</button> &nbsp;&nbsp;
+    <button onmouseover="overClick()">Mouse over</button> &nbsp;&nbsp;
+    <button onmouseout="outMouse()">Mouse out</button> &nbsp;&nbsp;
+    <button onmousedown="downClick()">Mouse down</button> <br> <br>
+
+    <div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis aspernatur ut quos adipisci saepe
+            eligendi voluptate error. Officia, dolorum facilis.</p>
+        <button id="firstChild">button-1</button>
+        <button id="secondChild">button-2</button>
+        <button id="thirdChild">button-3</button>
+        <button id="lastChild">button-4</button>
+    </div>
+
+    <h1>Style specific element Program</h1>
+    <div>
+        <button id="firstButton">Button-1</button>
+        <button id="secondButton">Button-2</button>
+        <button id="thirdButton">Button-3</button>
+    </div>
+
+    <script>
+
+        // firstButton
+        function button() {
+            document.body.style.backgroundColor = 'cyan';
+            document.body.style.color = '#000';
+        }
+        const firstButton = document.getElementById('firstButton');
+        firstButton.onclick = button;
+
+        // secondButton 
+        function buttonTwo() {
+            document.body.style.backgroundColor = 'crimson';
+        }
+        const secondButton = document.getElementById('secondButton');
+        secondButton.addEventListener('click', buttonTwo);
+
+        // thirdButton
+        const thirdButton = document.getElementById('thirdButton').addEventListener('click',
+            function () {
+                document.body.style.backgroundColor = '#009688';
+            })
+
+        // style specific element program (4 rules)
+        //first rule;
+        function btn1Style() {
+            document.body.style.backgroundColor = 'firebrick';
+            document.body.style.color = 'fuchsia';
+        }
+        const firstBtn = document.getElementById('firstChild');
+        firstBtn.onclick = btn1Style;
+
+        //third rule;
+        function btn3Style() {
+            document.body.style.color = 'white';
+            document.body.style.backgroundColor = 'tomato';
+        }
+        const thirdBtn = document.getElementById('thirdChild');
+        thirdBtn.addEventListener('click', btn3Style);
+
+        //four rule;
+        const lastBtn = document.getElementById('lastChild').addEventListener('click',
+            function () {
+                document.body.style.backgroundColor = 'darkgreen';
+                document.body.style.color = 'white';
+            }
+        )
+
+        function titleHandle() {
+            console.log('this is webpage header');
+        }
+        function handleClick() {
+            console.log('Today-', new Date());
+        }
+        function overClick() {
+            console.log('Someone is over me')
+        }
+        function outMouse() {
+            console.log('Out this button');
+        }
+        function downClick() {
+            console.log("Someone click down of the button");
+        }
+    </script>
+
+</body>
+
+</html>

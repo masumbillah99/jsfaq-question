@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width">
+    <title>Window Objects</title>
+</head>
+
+<body>
+    <h1>The Window Object</h1>
+    <h2>The setTimeout() Method</h2>
+    <p>Wait 5 seconds for greeting:</p>
+    <h3 id="greet"></h3>
+    <p>Click the button to open a new window. <br> & the window is close after 3 seconds</p>
+    <button onclick="openWindow()">Open Window</button>
+
+    <h2>The clearTimeout() Method</h2>
+    <p>Click the button to prevent the timeout to execute. (you have 3s).</p>
+    <h3 id="stopGreet"></h3>
+    <button onclick="stopGreet()">Stop</button>
+
+    <h2>The setInterval() and clearInterval() Methods</h2>
+    <p>In this example, the setInterval() method change the body background color after every 2000 ms.</p>
+    <button onclick="stopBg()">Stop Toggle</button>
+
+    <script>
+        // show greeting after 5s
+        const myTimeout = setTimeout(mySalam, 5000);
+        function mySalam() {
+            document.getElementById("greet").innerHTML = "Assalamualikum Orahmatullah Oyabarakatu!";
+        }
+
+        // open a new window and close after 3s
+        function openWindow() {
+            const myWindow = window.open('', '', "width=500, height=350");
+            setTimeout(() => {
+                myWindow.close()
+            }, 3000);
+        }
+
+        // stop greeting in 3 seconds
+        const myTimeout2 = setTimeout(myGreet, 3000);
+        function myGreet() {
+            document.getElementById("stopGreet").innerHTML = "Welcome sir!";
+        }
+        function stopGreet() {
+            clearTimeout(myTimeout2);
+        }
+
+        // toggle between two background colors
+        myInterval = setInterval(changeBg, 500);
+        function changeBg() {
+            let x = document.body;
+            x.style.backgroundColor = x.style.backgroundColor == "darkgreen" ? "green" : "darkgreen";
+        }
+        function stopBg() {
+            clearInterval(myInterval);
+        }
+    </script>
+</body>
+
+</html>
