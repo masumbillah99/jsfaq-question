@@ -12,27 +12,22 @@
     <h1>This is not confused anymore</h1>
     <p onclick="this.innerText = 'you clicked'">This is a paragraph. don't click this.</p>
     <script>
-        const myObj = {
-            name: 'Kuddus Ali',
-            getFullName: function () { 
+        const myobject = {
+            fname: "Kududs",
+            lname: "Ali",
+            getFullName: function () {
                 console.log(this);
-                return 'Mr. ' + this.name;
+                return 'Mr. '+ this.fname + this.lname;
             }
         }
-        // myObj.getFullName();
-        const anotherObj = {
-            name: 'Mukul Mia'
+        const anotherObject = {
+            fname: 'Mukul',
+            lname: "Ali"
         }
-        anotherObj.getFullName = myObj.getFullName;
-        // console.log(anotherObj.getFullName);
-        anotherObj.getFullName();
-        myObj.getFullName();
 
-        function add(a, b) {
-            console.log(this);
-            return a + b;
-        }
-        add(12, 13);
+        anotherObject.getFullName = myobject.getFullName;
+        console.log(anotherObject.getFullName);
+        anotherObject.getFullName();
     </script>
 </body>
 

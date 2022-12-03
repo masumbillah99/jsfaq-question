@@ -6,6 +6,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width">
     <title>Window Objects</title>
+    <style>
+        button.btn {
+            border: none;
+            outline: none;
+            background-color: #009657;
+            color: #fff;
+            font-size: 1.1rem;
+            padding: 12px 15px;
+            cursor: pointer;
+        }
+        input.text {
+            padding: 12px 15px;
+            font-size: 1.2rem;
+            margin: 0px 50px;
+            border: 2px solid black;
+            border-radius: 3px;
+        }
+    </style>
 </head>
 
 <body>
@@ -24,41 +42,15 @@
     <h2>The setInterval() and clearInterval() Methods</h2>
     <p>In this example, the setInterval() method change the body background color after every 2000 ms.</p>
     <button onclick="stopBg()">Stop Toggle</button>
+    
+    <hr>
 
-    <script>
-        // show greeting after 5s
-        const myTimeout = setTimeout(mySalam, 5000);
-        function mySalam() {
-            document.getElementById("greet").innerHTML = "Assalamualikum Orahmatullah Oyabarakatu!";
-        }
+    <h3>The setTimout() and clearTimeout() methods</h3>
+    <button class="btn" onclick="startCount()">Start count</button>
+    <input type="text" class="text" id="input"></input>
+    <button class="btn" onclick="stopCount()">Stop Count</button>
 
-        // open a new window and close after 3s
-        function openWindow() {
-            const myWindow = window.open('', '', "width=500, height=350");
-            setTimeout(() => {
-                myWindow.close()
-            }, 3000);
-        }
-
-        // stop greeting in 3 seconds
-        const myTimeout2 = setTimeout(myGreet, 3000);
-        function myGreet() {
-            document.getElementById("stopGreet").innerHTML = "Welcome sir!";
-        }
-        function stopGreet() {
-            clearTimeout(myTimeout2);
-        }
-
-        // toggle between two background colors
-        myInterval = setInterval(changeBg, 500);
-        function changeBg() {
-            let x = document.body;
-            x.style.backgroundColor = x.style.backgroundColor == "darkgreen" ? "green" : "darkgreen";
-        }
-        function stopBg() {
-            clearInterval(myInterval);
-        }
-    </script>
+    <script src="./timeout.js" type="text/javascript"></script>
 </body>
 
 </html>

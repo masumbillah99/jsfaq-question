@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Interval</title>
+    <style>
+        #progress-bar {
+            width: 50%;
+            height: 30px;
+            position: relative;
+            background-color: #ddd;
+            border-radius: 5px;
+            margin: 150px 100px 0px 150px;
+        }
+
+        #my-bar {
+            background-color: #4caf50;
+            border-radius: 5px 0px 0px 5px;
+            height: 30px;
+            width: 50px;
+            position: absolute;
+        }
+
+        button#btn {
+            margin: 50px 100px 0px 150px;
+            padding: 12px 20px;
+            color: #fff;
+            background-color: #4caf50;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="progress-bar">
+        <div id="my-bar"></div>
+    </div>
+    <button id="btn">Click</button>
+
+    <script>
+        // setInterval(() => {
+        //     console.log("hello set interval");
+        // }, 3000);
+
+        document.getElementById("btn").addEventListener("click", () => {
+            const element = document.getElementById('my-bar');
+            let width = 0;
+            let id = setInterval(fname, 10);
+            function fname() {
+                if (width === 100) {
+                    clearInterval(id);
+                }
+                else {
+                    width++;
+                    element.style.width = width + "%";
+                }
+            }
+        });
+
+    </script>
+</body>
+
+</html>
